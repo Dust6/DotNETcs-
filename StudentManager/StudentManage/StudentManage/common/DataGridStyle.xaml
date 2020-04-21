@@ -1,0 +1,47 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style TargetType="DataGrid">
+        <Setter Property="AutoGenerateColumns" Value="False"></Setter> <!--取消自动编辑列-->
+        <Setter Property="CanUserResizeColumns" Value="False"></Setter> <!--拖拽改变大小-->
+        <Setter Property="IsReadOnly" Value="True"></Setter> <!--只读-->
+        <Setter Property="RowHeaderWidth" Value="0"></Setter> 
+        <Setter Property="CanUserSortColumns" Value="False"></Setter> <!--自动排序-->
+        <Setter Property="SelectionMode" Value="Single"></Setter>
+    </Style>
+    <Style TargetType="DataGridColumnHeader">
+        <Setter Property="Height" Value="30"></Setter>
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+        <Setter Property="HorizontalContentAlignment" Value="Center"></Setter> <!--居中-->
+        <Setter Property="FontSize" Value="14"></Setter>
+    </Style>
+    <Style TargetType="DataGridRow">
+        <Setter Property="Height" Value="30"></Setter>
+        <Setter Property="FontSize" Value="13"></Setter>
+        <Style.Triggers>
+            <Trigger Property="IsSelected" Value="True"><!--被选中时-->
+                <Setter Property="Background" Value="Cyan"></Setter>
+            </Trigger>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="Purple"></Setter>
+                <Setter Property="Foreground" Value="White"></Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style TargetType="DataGridCell"> <!--单元格-->
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="DataGridCell">
+                    <TextBlock TextAlignment="Center" VerticalAlignment="Center"> <!--默认以文本设置内容居中，-->
+                        <ContentPresenter></ContentPresenter>
+                    </TextBlock>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers> <!--触发器-->
+            <Trigger Property="IsSelected" Value="True"> <!--被选中时-->
+                <Setter Property="Foreground" Value="Blue"></Setter> <!--字体颜色改变-->
+                <Setter Property="FontWeight" Value="Bold"></Setter>
+                <Setter Property="BorderThickness" Value="0"></Setter> <!--无边框-->
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+</ResourceDictionary>

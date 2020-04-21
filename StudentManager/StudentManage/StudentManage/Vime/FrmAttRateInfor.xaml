@@ -1,0 +1,33 @@
+﻿<Window x:Class="StudentManage.Vime.FrmAttRateInfor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StudentManage.Vime"
+        mc:Ignorable="d"
+        Title="班级出勤表" Icon="/img/ico/CustomerOrder.ico" Height="450" Width="600" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/common/DataGridStyle.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/img/bg/phtobg.jpg"></ImageBrush>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="135*"/>
+            <ColumnDefinition Width="262*"/>
+        </Grid.ColumnDefinitions>
+        <DataGrid x:Name="smDgScoreLsit"  Margin="0,0,-0.4,0" Grid.ColumnSpan="2" Opacity="0.85">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="学号" Width="100" Binding="{Binding StudentID}"></DataGridTextColumn>
+                <DataGridTextColumn Header="姓名" Width="100" Binding="{Binding StudentName}"></DataGridTextColumn>
+                <DataGridTextColumn Header="考勤号" Width="100" Binding="{Binding CardNo}"></DataGridTextColumn>
+                <DataGridTextColumn Header="出勤率" Width="100" Binding="{Binding AttRate}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
